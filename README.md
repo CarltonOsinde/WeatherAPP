@@ -1,6 +1,6 @@
 ## WeatherAPP
 
-![Weather App Example](./images/Example.JPEG)
+![Weather App Example](./images/Example.JPG)
 
 Simple Python app that is built using Flask and HTML to showcase the weather of a specific city
 
