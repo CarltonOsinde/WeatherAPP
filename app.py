@@ -1,7 +1,7 @@
 import requests
 
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 
 
 #Creating your home route
@@ -13,15 +13,11 @@ app.config['DEBUG'] = True
 #Forms an endpoint to (HOME) and calls the index function that implents everything and returns it via the html file
 @app.route('/')
 def index():
-   
-    
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={city}&appid=e208e5793ed8d845518fa4a9f936188a'
-    city = 'London'
 
+    url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=6373d366847603ddf8bcc2cafb87ce81'
+    city = 'Toronto'
 
     r = requests.get(url.format(city)).json()
-    print(r)
-
 
     weather = {
         'city': city,
@@ -32,7 +28,7 @@ def index():
 
     print(weather)
 
-    return render_template('weather.html', weather=weather)
+    return render_template('weather.html',weather=weather)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
